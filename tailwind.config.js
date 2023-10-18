@@ -10,7 +10,8 @@ export default {
         inter: "'Inter', sans-serif",
       },
       colors: {
-        'webBg': '#FFFAFA',
+        'bgColor': '#f4f4f4',
+        'webBg': '#F0F8FF',
         'web-dark': '#0B0B0C',
         'primary': '#7F80FE',
         'secondary': '#D29AFB',
