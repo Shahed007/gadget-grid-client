@@ -9,22 +9,22 @@ const Navbar = () => {
   const [navToggle, setNavToggle] = useState(false);
   const links = (
     <>
-      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" to="/">Home</NavLink>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/">Home</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </li>
-      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" to="/products">Products</NavLink>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/products">Products</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </li>
-      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" to="/aboutUs">About Us</NavLink>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/aboutUs">About Us</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </li>
-      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" to="/contactUs">Add Product</NavLink>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/contactUs">Add Product</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </li>
     </>
   )
   return (
-    <nav className="relative">
+    <nav className="relative z-50">
       <div className="backdrop-blur-lg bg-primary/20  h-14">
       <div className="flex justify-center sm:justify-between max-w-7xl px-3 mx-auto items-center">
       <Link to="/" className="flex gap-3 items-center mt-1">
@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="flex h-full max-w-7xl mx-auto px-3 justify-between items-center">
         
       
-      <ul className="hidden md:flex main-nav items-center gap-5 text-lg font-medium">
+      <ul className="hidden md:flex text-web-dark main-nav items-center gap-5 text-lg font-medium">
         {links}
       </ul>
       <button onClick={()=> setNavToggle(!navToggle)} className="md:hidden inline-block">
@@ -57,7 +57,7 @@ const Navbar = () => {
         </svg>
        }
       </button>
-      <ul className={`absolute main-nav top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/50 z-20 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
+      <ul className={`absolute text-web-dark  main-nav top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/40 z-30 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
         {links}
       </ul>
       <div className="flex gap-4 items-center">  
