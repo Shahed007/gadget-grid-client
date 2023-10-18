@@ -30,8 +30,7 @@ const Navbar = () => {
       <Link to="/" className="flex gap-3 items-center mt-1">
       <img src={logo}  className="h-10 " alt="Gadget Grid" />
       <div >
-        <h1 className="text-web-dark font-extrabold ml-8 text-xl  text-shadow">GadgetGrid</h1>
-        <p className="text-emerald-400 text-shadow2 ">Connecting the World of Gadgets</p>
+        <h1 className="text-web-dark font-extrabold  text-xl  text-shadow"><span className="text-2xl text-primary">T</span>echWonders</h1>
       </div>
       </Link>
       <p className="sm:flex hidden main-nav text-lg font-bold group link-border flex-col gap-0"><NavLink className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" to="/contactUs">Contact Us</NavLink>
@@ -58,7 +57,7 @@ const Navbar = () => {
         </svg>
        }
       </button>
-      <ul className={`absolute main-nav top-20 left-0 w-1/2 sm:w-1/4 h-screen backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/20 z-20 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
+      <ul className={`absolute main-nav top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/50 z-20 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
         {links}
       </ul>
       <div className="flex gap-4 items-center">  
