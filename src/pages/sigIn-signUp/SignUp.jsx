@@ -38,7 +38,8 @@ const SignUp = () => {
 
     createUser(email, password)
     .then(()=> {
-      profileUpdate(name, photo)
+      profileUpdate(name, photo);
+      window.location.replace('http://localhost:5173/');
     })
     .catch(err => {
       console.log(err.message);

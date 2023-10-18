@@ -2,11 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo/headphones.png";
 import Button from "../button/Button";
 import { useState } from "react";
+import useAuthContext from "../../hooks/useAuthContext";
 
 
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = useState(false);
+  const [userToggle, setUserToggle] = useState(false);
+  const {user, signOutUser} = useAuthContext();
+  const handleSignOut = () => {
+    signOutUser()
+  }
   const links = (
     <>
       <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/">Home</NavLink>
@@ -65,7 +71,25 @@ const Navbar = () => {
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </p>
       <div>
-      <Button text="SignIn" link="/signIn" ></Button>
+        {
+          user ?
+          <div>
+            <div>
+              <img onClick={()=> setUserToggle(!userToggle)} className="h-12 w-12 cursor-pointer hover:scale-95 active:scale-90 object-cover rounded-full shadow-md shadow-primary/40 buttonAnimation border-t-2  border-t-secondary border-l-2 border-l-secondary border-r-2 border-r-primary border-b-2 border-b-primary duration-200 hover:border-t-primary hover:border-b-secondary hover:border-l-primary hover:border-r-secondary" src={user?.photoURL} alt={`avatar`} />
+            </div>
+            <div>
+              <ul className={`absolute top-20 space-y-3 w-1/2 sm:w-1/4 backdrop-blur-md bg-primary/50 p-2 right-0 duration-500 ${userToggle ? 'translate-x-0 scale-100':'translate-x-full scale-0'}`}>
+                <li><h3 className="text-lg font-semibold text-web-dark text-center">{user?.displayName}</h3></li>
+                <li className="text-white text-base"><Link className="duration-200 hover:text-blue-200">Update your profile</Link></li>
+                <li><Button func={handleSignOut} text="SignOut" className="text-white w-full"></Button></li>
+              </ul>
+            </div>
+          </div>
+          :
+          <div>
+          <Button text="SignIn" link="/signIn" ></Button>
+          </div>
+        }
       </div>
       </div>
       </div>
