@@ -12,7 +12,7 @@ const MainLayout = () => {
       <main>
         <Outlet></Outlet>
       </main>
-      <footer className="pt-20 pb-5 bg-[#10182F] mt-32">
+      <footer className="pt-20 pb-5 bg-[#10182F] ">
         <Footer></Footer>
       </footer>
     </div>

@@ -65,7 +65,7 @@ const Navbar = () => {
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </p>
       <div>
-      <Button text="SignIn" link="#"></Button>
+      <Button text="SignIn" link="/signIn" ></Button>
       </div>
       </div>
       </div>
