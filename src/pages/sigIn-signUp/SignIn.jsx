@@ -1,15 +1,31 @@
 
 import { Link } from "react-router-dom";
 import banner from "../../assets/banner-image/sigin-login-banner.jpg";
+import useAuthContext from "../../hooks/useAuthContext";
+import Swal from "sweetalert2";
 
 
 const SignIn = () => {
+  const {signIn} = useAuthContext();
   const handleSignIn = e => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const email = form.get('email');
     const password = form.get('password');
-    console.log(email, password);
+    
+    signIn(email, password)
+    .then(() => {
+      Swal.fire({
+        title: 'Success',
+        text: 'SignIn successful',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
+      window.location.replace('http://localhost:5173/');
+    })
+    .catch(err => {
+      console.log(err.message);
+    })
   }
   return (
     <section className=" mt-[135px]" style={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center center'}}>

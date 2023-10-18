@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import banner from "../../assets/banner-image/sigin-login-banner.jpg";
 import { useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
@@ -39,10 +40,19 @@ const SignUp = () => {
     createUser(email, password)
     .then(()=> {
       profileUpdate(name, photo);
+      Swal.fire({
+        title: 'Success',
+        text: 'SignUp successful',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
       window.location.replace('http://localhost:5173/');
     })
     .catch(err => {
-      console.log(err.message);
+      if(err.message === 'Firebase: Error (auth/email-already-in-use).'){
+        setSignInErr({...sigInErr, passwordErr: null, checkErr: null})
+        setSignInErr({...sigInErr, emailErr: 'This email already in use'});
+      }
     })
   }
   return (
@@ -112,6 +122,9 @@ const SignUp = () => {
         </p>
       <p className={`${sigInErr.checkErr ? 'block' : 'hidden'} text-base text-red-700 `}>
           {sigInErr.checkErr && sigInErr.checkErr}
+        </p>
+      <p className={`${sigInErr.emailErr ? 'block' : 'hidden'} text-base text-red-700 `}>
+          {sigInErr.emailErr && sigInErr.emailErr}
         </p>
       <div className="inline-flex items-center">
       <label
