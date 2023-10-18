@@ -2,3 +2,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-shadow{
+  text-shadow: 1px 1px 10px rgba(11, 11, 12, 0.6);
+}
+.text-shadow2{
+  text-shadow: 1px 1px 10px rgba(66, 214, 160, 0.6);
+}
+
+.buttonAnimation {
+  animation: buttonAni 5s infinite ease-in-out;
+}
+
+.main-nav .active {
+  color: #7F80FE;
+}
+
+
+
+
+
+
+@keyframes buttonAni {
+  0% {
+    border-left-color: #D29AFB;
+    
+  }
+
+  30%{
+    border-top-color: #7F80FE;
+  }
+
+  60%{
+    border-right-color: #D29AFB;
+  }
+  70% {
+    border-bottom-color: #7F80FE;
+  }
+  80% {
+    border-left-color: #7F80FE;
+  }
+  80% {
+    border-right-color: #D29AFB;
+  }
+ }
