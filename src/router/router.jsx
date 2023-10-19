@@ -12,7 +12,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: async()=>{
+          return fetch('https://gadget-grid-server.vercel.app/brand');
+        }
       },
       {
         path: '/signIn',
