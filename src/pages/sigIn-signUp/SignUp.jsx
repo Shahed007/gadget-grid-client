@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import banner from "../../assets/banner-image/sigin-login-banner.jpg";
 import { useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
+import googleLogo from "../../assets/icon/google.png";
 
 
 const SignUp = () => {
-  const {createUser, profileUpdate} = useAuthContext();
+  const {createUser, profileUpdate, googleSignIn} = useAuthContext();
+  const navigate = useNavigate();
+  const location = useLocation();
   
   const [sigInErr, setSignInErr] = useState({
     emailErr: null,
@@ -58,7 +61,7 @@ const SignUp = () => {
             icon: 'success',
             confirmButtonText: 'Cool'
           })
-          window.location.replace('http://localhost:5173/');
+          location.state ? navigate(location.state) : navigate('/');
         }
       })
 
@@ -72,6 +75,19 @@ const SignUp = () => {
         setSignInErr({...sigInErr, passwordErr: null, checkErr: null})
         setSignInErr({...sigInErr, emailErr: err.message});
       }
+    })
+  }
+
+  const handleGoogleSiUp = () => {
+    googleSignIn()
+    .then(() => {
+      Swal.fire({
+        title: 'Success',
+        text: 'SignUp successful',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
+      location.state ? navigate(location.state) : navigate('/');
     })
   }
   return (
@@ -203,6 +219,10 @@ const SignUp = () => {
       </Link>
     </p>
   </form>
+    <div className="pt-4 flex justify-center flex-col gap-3 items-center">
+      <h5 className="text-center">Or signUp with</h5>
+      <button onClick={handleGoogleSiUp} className="btn btn-ghost"><img src={googleLogo} alt="google signUP" /></button>
+    </div>
 </div>
       </div>
     </section>
