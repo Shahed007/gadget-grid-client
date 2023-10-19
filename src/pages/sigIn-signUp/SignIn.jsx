@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import banner from "../../assets/banner-image/sigin-login-banner.jpg";
 import useAuthContext from "../../hooks/useAuthContext";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 
 const SignIn = () => {
@@ -14,14 +14,27 @@ const SignIn = () => {
     const password = form.get('password');
     
     signIn(email, password)
-    .then(() => {
-      Swal.fire({
-        title: 'Success',
-        text: 'SignIn successful',
-        icon: 'success',
-        confirmButtonText: 'Cool'
+    .then((result) => {
+      const user = {
+        email,
+        lastSignInTime: result?.user?.metadata?.lastSignInTime
+      }
+      fetch('http://localhost:5000/users', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user)
       })
-      window.location.replace('http://localhost:5173/');
+      .then(res => res.json())
+      .then(data => console.log(data))
+      // Swal.fire({
+      //   title: 'Success',
+      //   text: 'SignIn successful',
+      //   icon: 'success',
+      //   confirmButtonText: 'Cool'
+      // })
+      // window.location.replace('http://localhost:5173/');
     })
     .catch(err => {
       console.log(err.message);

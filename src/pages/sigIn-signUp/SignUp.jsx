@@ -38,20 +38,39 @@ const SignUp = () => {
     }
 
     createUser(email, password)
-    .then(()=> {
+    .then((result)=> {
       profileUpdate(name, photo);
-      Swal.fire({
-        title: 'Success',
-        text: 'SignUp successful',
-        icon: 'success',
-        confirmButtonText: 'Cool'
+      const creationTime = result?.user?.metadata?.creationTime;
+      const user = {name, email, photo, creationTime};
+      fetch('https://gadget-grid-server.vercel.app/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type':'application/json',
+        },
+        body: JSON.stringify(user)
       })
-      window.location.replace('http://localhost:5173/');
+      .then(res => res.json())
+      .then(data => {
+        if(data.insertedId){
+            Swal.fire({
+            title: 'Success',
+            text: 'SignUp successful',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+          window.location.replace('http://localhost:5173/');
+        }
+      })
+
+      
     })
     .catch(err => {
       if(err.message === 'Firebase: Error (auth/email-already-in-use).'){
         setSignInErr({...sigInErr, passwordErr: null, checkErr: null})
         setSignInErr({...sigInErr, emailErr: 'This email already in use'});
+      }else{
+        setSignInErr({...sigInErr, passwordErr: null, checkErr: null})
+        setSignInErr({...sigInErr, emailErr: err.message});
       }
     })
   }
