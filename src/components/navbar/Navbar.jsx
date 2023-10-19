@@ -63,7 +63,7 @@ const Navbar = () => {
         </svg>
        }
       </button>
-      <ul className={`absolute text-web-dark  main-nav top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/40 z-30 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
+      <ul className={`absolute text-web-dark  main-nav top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/80 z-30 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
         {links}
       </ul>
       <div className="flex gap-4 items-center">  

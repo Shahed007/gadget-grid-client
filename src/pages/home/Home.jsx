@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async"
+import HeroBannerSlider from "./heroBannerSlider/HeroBannerSlider"
 
 
 const Home = () => {
@@ -7,7 +8,9 @@ const Home = () => {
       <Helmet>
         <title>GadgetGrid | Home</title>
       </Helmet>
-      <h1>HOme</h1>
+      <section className="mt-[135px] backdrop-blur-sm  bg-white relative after:absolute after:h-full after:top-0 after:right-0 after:w-1/2 after:bg-primary/20">
+        <HeroBannerSlider></HeroBannerSlider>
+      </section>
     </>
   )
 }
