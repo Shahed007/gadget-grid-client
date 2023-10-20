@@ -3,6 +3,7 @@ import Button from "../../components/button/Button";
 import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+import { saveLocalStorage } from "../../Utility/localStorage";
 
 
 
@@ -29,6 +30,8 @@ const ProductDetails = () => {
         })
         return;
       }
+
+      saveLocalStorage(1);
       const cart = {
         userUid,
         brandName,
