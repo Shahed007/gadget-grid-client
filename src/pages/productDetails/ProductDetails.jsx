@@ -2,18 +2,33 @@ import { useLoaderData } from "react-router-dom"
 import Button from "../../components/button/Button";
 import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 
 const ProductDetails = () => {
   const {userUid} = useAuthContext();
+  const [cartData, setCartData] = useState([]);
   const loaderSingleProduct = useLoaderData();
   const {brandName, image, category, products, specification} = loaderSingleProduct || {};
 
-  useEffect(()=>{},[])
+  useEffect(()=>{
+    fetch('https://gadget-grid-server.vercel.app/cart')
+    .then(res => res.json())
+    .then(data => setCartData(data));
+  },[])
  
     const handleAddToCart = () =>  {
+      const isExist = cartData.find(item => item.products[0] === products[0]);
+      if(isExist){
+        Swal.fire({
+          title: 'Warning',
+          text: 'You have already added this product to cart',
+          icon: 'warning',
+          confirmButtonText: 'OK'
+        })
+        return;
+      }
       const cart = {
         userUid,
         brandName,
@@ -22,7 +37,7 @@ const ProductDetails = () => {
         products,
         specification
       }
-      fetch('http://localhost:5000/cart', {
+      fetch('https://gadget-grid-server.vercel.app/cart', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
