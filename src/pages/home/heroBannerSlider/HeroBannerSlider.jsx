@@ -14,7 +14,8 @@ const HeroBannerSlider = () => {
   return (
     <div className="max-w-7xl mx-auto px-3 ">
       
-      <Swiper pagination={{
+      <Swiper 
+      pagination={{
           clickable: true,
         }} 
         loop={true}
