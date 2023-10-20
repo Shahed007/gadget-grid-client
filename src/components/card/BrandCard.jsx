@@ -7,7 +7,7 @@ const BrandCard = ({brand}) => {
     <Link>
       <div className='flex justify-center items-center flex-col gap-4 duration-200 rounded hover:shadow-md hover:backdrop-blur-md hover:bg-secondary/10 p-3'>
         <img className='h-20' src={brand_image} alt={`iamge of ${brand_name}`} />
-        <h3 className='text-base font-semibold'>{brand_name}</h3>
+        <h3 className='text-base text-primary font-semibold'>{brand_name}</h3>
       </div>
     </Link>
   )

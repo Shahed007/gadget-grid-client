@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async"
 import HeroBannerSlider from "./heroBannerSlider/HeroBannerSlider"
 import BrandSection from "../brandSection/BrandSection"
 import { useLoaderData } from "react-router-dom"
+import AboutUsSection from "./aboutUsSection/AboutUsSection"
 
 
 const Home = () => {
@@ -16,6 +17,9 @@ const Home = () => {
       </section>
       <section className="my-32">
         <BrandSection loaderBrand={loaderBrand}></BrandSection>
+      </section>
+      <section className="mb-32">
+        <AboutUsSection></AboutUsSection>
       </section>
     </>
   )
