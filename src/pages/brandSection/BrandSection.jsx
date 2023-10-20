@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import BrandCard from '../../components/card/BrandCard';
 const BrandSection = ({loaderBrand}) => {
-  console.log(loaderBrand);
   return (
     <div className="max-w-7xl mx-auto px-3">
       <div className='text-center mb-12'>

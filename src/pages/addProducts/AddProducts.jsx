@@ -9,13 +9,14 @@ const AddProducts = () => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.productsName.value;
-    const companyName = form.brandName.value;
-    const imageUrl = form.image.value;
-    const categoryName = form.typeOfProducts.value;
-    const price = form.price.value;
-    const ratting = form.ratting.value;
-    const description = form.description.value;
+    const name = form.productsName.value.toLowerCase();
+    const companyName = form.brandName.value.toLowerCase();
+    const imageUrl = form.image.value.toLowerCase();
+    const categoryName = form.typeOfProducts.value.toLowerCase();
+    const price = form.price.value.toLowerCase();
+    const ratting = form.ratting.value.toLowerCase();
+    const description = form.description.value.toLowerCase();
+    const specification = form.specification.value.toLowerCase();
 
     const products = {
       brandName: companyName,
@@ -25,6 +26,7 @@ const AddProducts = () => {
       price,
       ratting,
       description,
+      specification
     }
 
 
@@ -41,7 +43,7 @@ const AddProducts = () => {
       return;
     }
 
-    fetch(`http://localhost:5000/products`, {
+    fetch(`https://gadget-grid-server.vercel.app/products`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -49,7 +51,17 @@ const AddProducts = () => {
       body: JSON.stringify(products)
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+      if(data.insertedId){
+        Swal.fire({
+          title: 'Success',
+          text: 'Product added success fully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+        e.target.reset();
+      }
+    })
   }
   return (
     <section className="mt-[200px] mb-32">
@@ -60,15 +72,15 @@ const AddProducts = () => {
        <div className="w-full flex-1 flex flex-col gap-4">
         <div className="flex flex-col gap-3 w-full">
            <label  className="text-base font-semibold">Name</label>
-            <input name="productsName" className="p-2 w-full rounded" type="text" placeholder="Enter products name" />
+            <input required name="productsName" className="p-2 w-full rounded" type="text" placeholder="Enter products name" />
         </div>
         <div className="flex flex-col gap-3 w-full">
            <label htmlFor="brandName" className="text-base font-semibold">Brand Name</label>
-            <input name="brandName" id="" className="p-2 w-full rounded" type="text" placeholder="Enter brand names" />
+            <input required name="brandName" id="" className="p-2 w-full rounded" type="text" placeholder="Enter brand names" />
         </div>
         <div className="flex flex-col gap-3 w-full">
            <label htmlFor="image" className="text-base font-semibold">Image</label>
-            <input id="image" name="image" className="p-2 w-full rounded" type="text" placeholder="Enter image url" />
+            <input required id="image" name="image" className="p-2 w-full rounded" type="text" placeholder="Enter image url" />
         </div>
 
         
@@ -78,15 +90,15 @@ const AddProducts = () => {
        <div className="w-full flex-1 flex flex-col gap-4">
         <div className="flex flex-col gap-3 w-full">
            <label htmlFor="typeOfProducts" className="text-base font-semibold">Types of products</label>
-            <input name="typeOfProducts" className="p-2 w-full rounded" type="text" placeholder="Enter types of products" />
+            <input required name="typeOfProducts" className="p-2 w-full rounded" type="text" placeholder="Enter types of products" />
         </div>
         <div className="flex flex-col gap-3 w-full">
            <label  className="text-base font-semibold">Price</label>
-            <input name="price" className="p-2 w-full rounded" type="text" placeholder="Enter price" />
+            <input required name="price" className="p-2 w-full rounded" type="text" placeholder="Enter price" />
         </div>
         <div className="flex flex-col gap-3 w-full">
            <label htmlFor="rating" className="text-base font-semibold">Rating</label>
-            <input name="ratting" id="rating" className="p-2 w-full rounded" type="text" placeholder="Enter rating" />
+            <input required name="ratting" id="rating" className="p-2 w-full rounded" type="text" placeholder="Enter rating" />
         </div>
 
        </div>
@@ -94,7 +106,12 @@ const AddProducts = () => {
        </div>
        <div className="flex flex-col gap-3 w-full mt-4">
            <label htmlFor="description" className="text-base font-semibold">Short Description</label>
-            <textarea  name="description" id="" cols="" rows="" className="w-full rounded h-20 overflow-hidden"></textarea>
+            <textarea  required name="description" id="" cols="" rows="" placeholder="Enter product description" className="w-full rounded h-20 p-2 overflow-hidden"></textarea>
+        </div>
+       <div className="flex flex-col gap-3 w-full mt-4">
+           <label htmlFor="specification" className="text-base font-semibold">Product specification</label>
+           <p className="text-sm text-red-400">After writing one specification, full stop mast should be useds</p>
+            <textarea required  name="specification" id="" cols="" rows="" placeholder="Enter product specification" className="w-full rounded h-20 overflow-y-auto p-2"></textarea>
         </div>
         <div className="flex w-full mt-7">
           <input className="px-10 py-3 w-full active:scale-95 bg-transparent buttonAnimation text-shadow drop-shadow-md font-semibold text-lg rounded-md border-t-2 border-t-secondary border-l-2 border-l-secondary border-r-2 border-r-primary border-b-2 border-b-primary duration-200 hover:border-t-primary hover:border-b-secondary hover:border-l-primary hover:border-r-secondary" type="submit" value="Add products" />
