@@ -13,7 +13,7 @@ const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [userUid, setUserUid] = useState(null);
-  const [addProductCunt, setAddProductCunt] = useState(0);
+  
 
   const createUser = (email,password) => {
     setLoading(true);
@@ -54,13 +54,11 @@ const AuthProvider = ({children}) => {
     loading,
     user,
     userUid,
-    addProductCunt,
     createUser,
     profileUpdate,
     signIn,
     googleSignIn,
     signOutUser,
-    setAddProductCunt,
   }
   return (
     <AuthContext.Provider value={authData}>
