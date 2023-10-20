@@ -38,6 +38,9 @@ const ProductCard = ({prod}) => {
   <div className="p-6 pt-0">
     <Button text="Details" className="w-full" link={`/productDetails/${_id}`}></Button>
   </div>
+  <div className="p-6 pt-0">
+    <Button text="Update product" className="w-full" link={`/updateProduct/${_id}`}></Button>
+  </div>
 </div>
   )
 }

@@ -1,19 +1,33 @@
 import { useLoaderData } from "react-router-dom"
 import Button from "../../components/button/Button";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import useAuthContext from "../../hooks/useAuthContext";
 
-import add1 from "../../assets/advartisement/add-1.avif";
-import add2 from "../../assets/advartisement/add-2.webp";
-import add3 from "../../assets/advartisement/add-3.avif";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-
-import { Pagination, Autoplay } from 'swiper/modules';
 
 const ProductDetails = () => {
+  const {user} = useAuthContext();
+  const {uid} = user;
   const loaderSingleProduct = useLoaderData();
-  const {_id,brandName, image, products, specification} = loaderSingleProduct || {};
+  const {brandName, image, category, products, specification} = loaderSingleProduct || {};
+  const handleAddToCart = () =>  {
+    const cart = {
+      uid,
+      brandName,
+      image,
+      category,
+      products,
+      specification
+    }
+    fetch('http://localhost:5000/cart', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(cart)
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+  }
   return (
     <section className="mt-[135px] ">
     <div className="backdrop-blur-sm  bg-white relative after:absolute after:h-full after:top-0 after:right-0 after:w-1/2 after:bg-primary/20">
@@ -49,35 +63,15 @@ const ProductDetails = () => {
           </div>
           <div className="flex-1 w-full h-full flex flex-col gap-6 z-20">
             <img className="h-full w-full" src={image} alt={`image of ${products[0]}`} />
-              <div className="flex items-center gap-4 w-full  lg:flex-row flex-col">
+              <div className="flex items-center gap-4 w-full  ">
                 <div className="flex-1">
-                  <Button text="Add to product" className="w-full" link="#"></Button>
-                </div>
-                <div className="flex-1">
-                <Button text="Update product" className="w-full" link="#"></Button>
+                  <Button func={handleAddToCart} text="Add to product" className="w-full" ></Button>
                 </div>
               </div>
           </div>
       </div>
     </div>
-    <div className="my-12 h-screen">
-    <Swiper 
-        pagination={{
-          clickable: true,
-        }} 
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        modules={[Pagination, Autoplay]} 
-        className="h-full w-full"
-      >
-        <SwiperSlide className="w-full h-full"><img className="w-full h-full" src={add1} alt="" /></SwiperSlide>
-        <SwiperSlide className="w-full h-full"><img className="w-full h-full" src={add2} alt="" /></SwiperSlide>
-        <SwiperSlide className="w-full h-full"><img className="w-full h-full" src={add3} alt="" /></SwiperSlide>
-      </Swiper>
-    </div>
+    
     </section>
   )
 }
