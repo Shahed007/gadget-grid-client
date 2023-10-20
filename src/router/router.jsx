@@ -41,6 +41,13 @@ const router = createBrowserRouter([
         loader: async({params})=>{
           return fetch(`https://gadget-grid-server.vercel.app/products/${params.brandName}`)
         }
+      },
+      {
+        path: '/productDetails/:id',
+        element: <ProductDetails></ProductDetails>,
+        loader: async({params})=>{
+          return fetch(`https://gadget-grid-server.vercel.app/product/${params.id}`)
+        }
       }
     ]
   }
