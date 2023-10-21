@@ -10,12 +10,14 @@ import UpdateProduct from "../pages/updateProduct/UpdateProduct"
 import Cart from "../pages/cart/Cart"
 import AllProduct from "../pages/allProduct/AllProduct"
 import PrivateRoute from "../pages/privateRoute/PrivateRoute"
+import ErrorPage from "../pages/errorPage/ErrorPage"
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
