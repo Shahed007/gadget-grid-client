@@ -34,6 +34,7 @@ const SignUp = () => {
       return;
     }else if(!/[@$!%*?&]/.test(password)){
       setSignInErr({...sigInErr, passwordErr: "password don't have a special character"})
+      return;
     }
 
     if(!checkbox){
