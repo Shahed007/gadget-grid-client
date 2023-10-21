@@ -14,4 +14,10 @@ const saveLocalStorage = (number) => {
 
 }
 
-export {getLocalStorage, saveLocalStorage};
+const deleteLocalStorage = (number) => {
+  const getStorage = getLocalStorage();
+  const num = getStorage - number;
+  localStorage.setItem('cart', JSON.stringify(num));
+}
+
+export {getLocalStorage, saveLocalStorage, deleteLocalStorage};

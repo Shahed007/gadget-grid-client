@@ -1,37 +1,20 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigation } from "react-router-dom"
 import Button from "../../components/button/Button";
 import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
-import { saveLocalStorage } from "../../Utility/localStorage";
+
 
 
 
 const ProductDetails = () => {
   const {userUid} = useAuthContext();
-  const [cartData, setCartData] = useState([]);
   const loaderSingleProduct = useLoaderData();
   const {brandName, image, category, products, specification} = loaderSingleProduct || {};
+  const navigation = useNavigation();
+  console.log(navigation);
 
-  useEffect(()=>{
-    fetch('https://gadget-grid-server.vercel.app/cart')
-    .then(res => res.json())
-    .then(data => setCartData(data));
-  },[])
  
     const handleAddToCart = () =>  {
-      const isExist = cartData.find(item => item.products[0] === products[0]);
-      if(isExist){
-        Swal.fire({
-          title: 'Warning',
-          text: 'You have already added this product to cart',
-          icon: 'warning',
-          confirmButtonText: 'OK'
-        })
-        return;
-      }
-
-      saveLocalStorage(1);
       const cart = {
         userUid,
         brandName,
@@ -52,11 +35,19 @@ const ProductDetails = () => {
         if(data.insertedId){
           Swal.fire({
             title: 'Success',
-            text: 'Product update successful',
+            text: 'Product added to cart successfully',
             icon: 'success',
             confirmButtonText: 'Cool'
           })
+        }else{
+          Swal.fire({
+            title: 'Warning!',
+            text: data.error,
+            icon: 'warning',
+            confirmButtonText: 'OK'
+          })
         }
+        console.log(data);
       })
     }
   
@@ -64,7 +55,7 @@ const ProductDetails = () => {
    
     <>
       {
-        userUid === null ? 
+        navigation.state === 'loading' ? 
         <div className="h-screen w-full"><span className="loading loading-ring loading-lg"></span></div>
         :
         <section className="mt-[135px] ">

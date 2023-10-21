@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [userUid, setUserUid] = useState(null);
+  const [count, setCount] = useState(0);
   
 
   const createUser = (email,password) => {
@@ -54,11 +55,13 @@ const AuthProvider = ({children}) => {
     loading,
     user,
     userUid,
+    count,
     createUser,
     profileUpdate,
     signIn,
     googleSignIn,
     signOutUser,
+    setCount,
   }
   return (
     <AuthContext.Provider value={authData}>

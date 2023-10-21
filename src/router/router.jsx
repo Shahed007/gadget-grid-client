@@ -59,10 +59,10 @@ const router = createBrowserRouter([
         }
       },
       {
-        path: '/cart',
+        path: '/cart/:uId',
         element: <Cart></Cart>,
-        loader: async()=>{
-          return fetch('https://gadget-grid-server.vercel.app/cart');
+        loader: async({params})=>{
+          return fetch(`https://gadget-grid-server.vercel.app/cart/${params.uId}`);
         }
       }
     ]

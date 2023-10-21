@@ -1,17 +1,84 @@
+import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom"
+import Swal from "sweetalert2";
+import { deleteLocalStorage } from "../../Utility/localStorage";
+import useAuthContext from "../../hooks/useAuthContext";
+
 
 
 const tableHeader = ['ID', 'Image', 'Name', 'Price']
 
 const Cart = () => {
   const loaderCart = useLoaderData();
-  console.log(loaderCart);
+  const [loaderData, setLoaderData] = useState(loaderCart);
+  const {setCount, count, userUid} = useAuthContext();
+
+  
+  
+
+  const handleDelete = (_id) => {
+    fetch(`https://gadget-grid-server.vercel.app/cart/${_id}`, {
+      method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.deletedCount > 0){
+        const filterData = loaderData.filter(item => item._id !== _id);
+        setLoaderData(filterData);
+        setCount(count + 1);
+        deleteLocalStorage(1);
+        Swal.fire({
+          title: 'Success',
+          text: 'Item deleted successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      }
+    })
+  }
+
+  const handleAllDelete = (uId) => {
+
+
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "To delete this",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          fetch(`https://gadget-grid-server.vercel.app/clearCart/${uId}`, {
+            method: 'DELETE',
+          })
+          .then(res => res.json())
+          .then(data => {
+            if(data.deletedCount > 0){
+              Swal.fire(
+                'Deleted!',
+                'Your cart has been deleted.',
+                'success'
+              )
+              setLoaderData([]);
+            }
+          })
+        }
+      })
+  } 
   return (
       <section className="mt-[135px] mb-32">
         <div className="bg-gradient-to-l h-40 flex justify-center items-center backdrop-blur-lg  from-primary/30 to-secondary/30 w-full">
          <h2 className="text-center py-6  text-web-dark font-extrabold text-4xl uppercase">Products In your cart</h2>
         </div>
-        <div className="max-w-7xl px-3 mx-auto pt-12">
+        {
+          loaderData.length === 0 ?
+          <div className="h-screen flex justify-center items-center w-full text-center">
+            <p className="text-2xl font-bold text-web-dark">Your cart has been empty</p>
+          </div>
+          :
+          <div className="max-w-7xl px-3 mx-auto pt-12">
         <div className="overflow-x-auto">
         <table className="table w-full" >
           {/* head */}
@@ -20,7 +87,7 @@ const Cart = () => {
               {
                 tableHeader.map((item, idx) => <th key={idx}>{item}</th>)
               }
-              <th className="flex gap-1 cursor-pointer items-center text-base font-semibold bg-red-400 w-max text-white rounded shadow active:scale-95">
+              <th onClick={()=> handleAllDelete(userUid)} className="flex gap-1 cursor-pointer items-center text-base font-semibold bg-red-400 w-max text-white rounded shadow active:scale-95">
               <span>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
@@ -35,14 +102,14 @@ const Cart = () => {
           <tbody >
             {/* row 1 */}
             {
-              loaderCart?.map((cart, idx) => (
+              loaderData?.map((cart, idx) => (
               <tr key={cart._id}>
               <th>{idx + 1}</th>
               <td><img className="h-16 w-[66px] drop-shadow" src={cart.image} alt={`image of ${cart.products[0]}`} /></td>
               <td className="first-letter:uppercase text-web-dark ">{cart.products[0]}</td>
               <td className="font-medium text-web-dark">$ {cart.products[1]}</td>
               <td >
-              <div className="inline-block cursor-pointer active:scale-95 ">
+              <div onClick={()=>handleDelete(cart._id)} className="inline-block cursor-pointer active:scale-95 ">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-red-500">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
               </svg>
@@ -77,6 +144,7 @@ const Cart = () => {
         </Link>
         </div>
       </div>
+        }
     </section>
   )
 }
