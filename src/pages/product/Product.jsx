@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { Pagination, Autoplay } from 'swiper/modules';
+import { Helmet } from "react-helmet-async";
 
 
 const Product = () => {
@@ -16,7 +17,11 @@ const Product = () => {
   const navigation = useNavigation();
   const brandName = useParams();
   return (
-    <section className="mt-[135px] mb-16 bg-transparent">
+    <>
+      <Helmet>
+        <title>TecWanders || Product</title>
+      </Helmet>
+      <section className="mt-[135px] mb-16 bg-transparent">
     <div className="bg-gradient-to-l h-40 flex justify-center items-center backdrop-blur-lg  from-primary/30 to-secondary/30 w-full">
     <h2 className="text-center py-6  text-web-dark font-extrabold text-4xl uppercase">{brandName.brandName.toUpperCase()} Products</h2>
     </div>
@@ -58,6 +63,7 @@ const Product = () => {
         </>
       }
     </section>
+    </>
   )
 }
 

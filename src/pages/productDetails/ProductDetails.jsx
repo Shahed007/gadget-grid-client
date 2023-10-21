@@ -2,6 +2,7 @@ import { useLoaderData, useNavigation } from "react-router-dom"
 import Button from "../../components/button/Button";
 import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -52,6 +53,9 @@ const ProductDetails = () => {
   return (
    
     <>
+    <Helmet>
+      <title>TecWanders || ProductDetails</title>
+    </Helmet>
       {
         navigation.state === 'loading' ? 
         <div className="h-screen w-full"><span className="loading loading-ring loading-lg"></span></div>

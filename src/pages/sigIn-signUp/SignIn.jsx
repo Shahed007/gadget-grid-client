@@ -5,6 +5,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 import Swal from "sweetalert2";
 import googleLogo from "../../assets/icon/google.png";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 const SignIn = () => {
@@ -68,7 +69,11 @@ const SignIn = () => {
   }
 
   return (
-    <section className=" mt-[135px]" style={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center center'}}>
+    <>
+    <Helmet>
+      <title>TecWanders | SignIn</title>
+    </Helmet>
+      <section className=" mt-[135px]" style={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center center'}}>
       <div className="md:max-w-3xl w-full  mx-auto px-3 py-12 ">
       <div className="relative flex flex-col  rounded-xl  bg-clip-border backdrop-blur-md bg-primary/30 text-white shadow-none p-4">
   <h4 className="block text-center font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -127,6 +132,7 @@ const SignIn = () => {
 </div>
       </div>
     </section>
+    </>
   )
 }
 

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom"
 import Swal from "sweetalert2";
 
@@ -50,7 +51,11 @@ const UpdateProduct = () => {
   
   }
   return (
-    <section className="mt-[200px] mb-32">
+    <>
+      <Helmet>
+        <title>TecWanders || UpdateProduct</title>
+      </Helmet>
+      <section className="mt-[200px] mb-32">
     <div className="max-w-6xl mx-auto px-3 backdrop-blur-md bg-primary/30 p-4 rounded">
     <h2 className="text-3xl font-extrabold text-center mb-7">Update Products</h2>
     <form onSubmit={handleUpdateProduct} className="" > 
@@ -105,6 +110,7 @@ const UpdateProduct = () => {
     </form>
     </div>
   </section>
+    </>
   )
 }
 
