@@ -51,7 +51,7 @@ const Navbar = () => {
       <Link to="/" className="flex gap-3 items-center mt-1">
       <img src={logo}  className="h-10 " alt="Gadget Grid" />
       <div >
-        <h1 className="text-web-dark font-extrabold  text-xl  text-shadow"><span className="text-2xl text-primary">T</span>echWonders</h1>
+        <h1 className="text-web-dark font-extrabold  text-xl  text-shadow"><span className="text-2xl text-primary">G</span>adgetGrid</h1>
       </div>
       </Link>
       <p className="sm:flex hidden  text-lg font-bold group link-border flex-col gap-0"><Link className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" >Contact Us</Link>

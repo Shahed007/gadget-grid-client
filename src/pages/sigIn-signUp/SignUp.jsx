@@ -95,7 +95,7 @@ const SignUp = () => {
   return (
     <>
     <Helmet>
-      <title>TecWanders | SignUp</title>
+      <title>GadgetGrid | SignUp</title>
     </Helmet>
           <section className=" mt-[135px]" style={{backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center center'}}>
       <div className="md:max-w-3xl w-full  mx-auto px-3 py-12 ">

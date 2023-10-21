@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData, useNavigation } from "react-router-dom"
 import ProductCard from "../../components/card/ProductCard";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -9,7 +10,11 @@ const AllProduct = () => {
   const navigation = useNavigation();
   const [seeAll, setSeeAll] = useState(false);
   return (
-    <section className="mt-[135px] mb-32">
+    <>
+      <Helmet>
+        <title>GadgetGrid | AllProduct</title>
+      </Helmet>
+      <section className="mt-[135px] mb-32">
       {
         navigation.state === 'loading' ? 
         <div className="h-screen w-full flex justify-center items-center">
@@ -41,6 +46,7 @@ const AllProduct = () => {
         </>
       }
     </section>
+    </>
   )
 }
 

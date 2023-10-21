@@ -19,7 +19,7 @@ const Product = () => {
   return (
     <>
       <Helmet>
-        <title>TecWanders || Product</title>
+        <title>GadgetGrid || Product</title>
       </Helmet>
       <section className="mt-[135px] mb-16 bg-transparent">
     <div className="bg-gradient-to-l h-40 flex justify-center items-center backdrop-blur-lg  from-primary/30 to-secondary/30 w-full">

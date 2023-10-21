@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>TecWanders | Home</title>
+        <title>GadgetGrid | Home</title>
       </Helmet>
       <section className="mt-[135px] backdrop-blur-sm  bg-white relative after:absolute after:h-full after:top-0 after:right-0 after:w-1/2 after:bg-primary/20">
         <HeroBannerSlider></HeroBannerSlider>

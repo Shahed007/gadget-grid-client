@@ -60,7 +60,7 @@ const AddProducts = () => {
   return (
     <>
       <Helmet>
-        <title>TecWanders || AddProducts</title>
+        <title>GadgetGrid || AddProducts</title>
       </Helmet>
       <section className="mt-[200px] mb-32">
       <div className="max-w-6xl mx-auto px-3 backdrop-blur-md bg-primary/30 p-4 rounded">

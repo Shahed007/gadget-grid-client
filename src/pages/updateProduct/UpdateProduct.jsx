@@ -53,7 +53,7 @@ const UpdateProduct = () => {
   return (
     <>
       <Helmet>
-        <title>TecWanders || UpdateProduct</title>
+        <title>GadgetGrid || UpdateProduct</title>
       </Helmet>
       <section className="mt-[200px] mb-32">
     <div className="max-w-6xl mx-auto px-3 backdrop-blur-md bg-primary/30 p-4 rounded">
