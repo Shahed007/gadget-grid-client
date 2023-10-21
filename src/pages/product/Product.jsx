@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom"
+import { useLoaderData, useNavigation, useParams } from "react-router-dom"
 import ProductCard from "../../components/card/ProductCard";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import add1 from "../../assets/advartisement/add-1.avif";
@@ -13,13 +13,26 @@ import { Pagination, Autoplay } from 'swiper/modules';
 
 const Product = () => {
   const loaderProduct = useLoaderData();
+  const navigation = useNavigation();
   const brandName = useParams();
   return (
     <section className="mt-[135px] mb-16 bg-transparent">
     <div className="bg-gradient-to-l h-40 flex justify-center items-center backdrop-blur-lg  from-primary/30 to-secondary/30 w-full">
     <h2 className="text-center py-6  text-web-dark font-extrabold text-4xl uppercase">{brandName.brandName.toUpperCase()} Products</h2>
     </div>
-      <div className="max-w-7xl mx-auto gap-6 px-3 pt-12 grid grid-cols-1 md:grid-cols-2">
+      {
+        loaderProduct.length === 0 ?
+        <p className="h-screen w-full flex justify-center items-center text-center text-2xl font-bold text-web-dark">
+           This brand has no products
+        </p>
+        :
+        navigation.state === "loading" ?
+        <div className="h-screen w-full flex justify-center items-center">
+        <span className="loading loading-ring loading-lg"></span>
+        </div>
+        :
+        <>
+        <div className="max-w-7xl mx-auto gap-6 px-3 pt-12 grid grid-cols-1 md:grid-cols-2">
         {
           loaderProduct?.map(prod => <ProductCard key={prod._id} prod={prod}></ProductCard>) 
         }
@@ -42,6 +55,8 @@ const Product = () => {
         <SwiperSlide className="w-full h-full"><img className="w-full h-full" src={add3} alt="" /></SwiperSlide>
       </Swiper>
     </div>
+        </>
+      }
     </section>
   )
 }

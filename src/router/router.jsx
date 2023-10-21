@@ -8,6 +8,7 @@ import ProductDetails from "../pages/productDetails/ProductDetails"
 import Product from "../pages/product/Product"
 import UpdateProduct from "../pages/updateProduct/UpdateProduct"
 import Cart from "../pages/cart/Cart"
+import AllProduct from "../pages/allProduct/AllProduct"
 
 
 const router = createBrowserRouter([
@@ -63,6 +64,13 @@ const router = createBrowserRouter([
         element: <Cart></Cart>,
         loader: async({params})=>{
           return fetch(`https://gadget-grid-server.vercel.app/cart/${params.uId}`);
+        }
+      },
+      {
+        path: '/allProduct',
+        element: <AllProduct></AllProduct>,
+        loader: async()=>{
+          return fetch('https://gadget-grid-server.vercel.app/products');
         }
       }
     ]

@@ -11,7 +11,6 @@ const ProductDetails = () => {
   const loaderSingleProduct = useLoaderData();
   const {brandName, image, category, products, specification} = loaderSingleProduct || {};
   const navigation = useNavigation();
-  console.log(navigation);
 
  
     const handleAddToCart = () =>  {
@@ -47,7 +46,6 @@ const ProductDetails = () => {
             confirmButtonText: 'OK'
           })
         }
-        console.log(data);
       })
     }
   

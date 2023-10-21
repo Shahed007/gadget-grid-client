@@ -6,11 +6,13 @@ const ProductCard = ({prod}) => {
   
   return (
     <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
-  <div className="relative mx-4 mt-4 overflow-hidden flex justify-center items-center text-gray-700 backdrop-blur-md bg-gradient-to-b from-web-dark to-primary/30  h-96   rounded-xl bg-clip-border">
+  <div className="relative mx-4 mt-4 overflow-hidden flex justify-center items-center text-gray-700 backdrop-blur-md bg-gradient-to-b from-web-dark to-primary/30  h-96    rounded-xl bg-clip-border">
+    <div className='w-60 h-52 flex justify-center items-center'>
     <img
       src={image}
-      className="object-cover w-4/5 h-4/5 md:w-[300px] md:h-[300px]"
+      className="object-cover w-4/5 h-4/5 md:w-full md:h-full"
     />
+    </div>
   </div>
   <div className="p-6">
     <div className="flex items-center justify-between mb-2">

@@ -1,9 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+
 import Swal from "sweetalert2";
 
 
 const AddProducts = () => {
-  const loaderProducts = useLoaderData();
   
   const handleAddProducts = e => {
     e.preventDefault();
@@ -30,19 +29,6 @@ const AddProducts = () => {
     }
 
 
-    const isExist = loaderProducts.find(item => item.products[0] === name);
-    
-
-    if(isExist){
-      Swal.fire({
-        title: 'Warning!',
-        text: 'This Products already exist',
-        icon: 'warning',
-        confirmButtonText: 'Ok'
-      })
-      return;
-    }
-
     fetch(`https://gadget-grid-server.vercel.app/products`, {
       method: 'POST',
       headers: {
@@ -60,6 +46,13 @@ const AddProducts = () => {
           confirmButtonText: 'Cool'
         })
         e.target.reset();
+      }else{
+        Swal.fire({
+        title: 'Warning!',
+        text: data.error,
+        icon: 'warning',
+        confirmButtonText: 'Ok'
+      })
       }
     })
   }
