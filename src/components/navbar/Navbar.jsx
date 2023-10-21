@@ -18,7 +18,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     signOutUser()
   }
-  const links = (
+  const desktoplinks = (
     <>
       <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/">Home</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
@@ -28,6 +28,19 @@ const Navbar = () => {
       </li>
       <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/addProducts">Add Product</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
+      </li>
+    </>
+  )
+  const mobileLinks = (
+    <>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300  inline-block" to="/">Home</NavLink>
+      
+      </li>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300  inline-block" to="/allProduct">All Products</NavLink>
+      
+      </li>
+      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300  inline-block" to="/addProducts">Add Product</NavLink>
+      
       </li>
     </>
   )
@@ -41,7 +54,7 @@ const Navbar = () => {
         <h1 className="text-web-dark font-extrabold  text-xl  text-shadow"><span className="text-2xl text-primary">T</span>echWonders</h1>
       </div>
       </Link>
-      <p className="sm:flex hidden main-nav text-lg font-bold group link-border flex-col gap-0"><NavLink className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" to="/contactUs">Contact Us</NavLink>
+      <p className="sm:flex hidden  text-lg font-bold group link-border flex-col gap-0"><Link className="h-full w-full text-web-dark duration-300 hover:text-primary  inline-block" >Contact Us</Link>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </p>
       </div>
@@ -51,7 +64,7 @@ const Navbar = () => {
         
       
       <ul className="hidden md:flex text-web-dark main-nav items-center gap-5 text-lg font-medium">
-        {links}
+        {desktoplinks}
       </ul>
       <button onClick={()=> setNavToggle(!navToggle)} className="md:hidden inline-block">
        {
@@ -65,8 +78,8 @@ const Navbar = () => {
         </svg>
        }
       </button>
-      <ul className={`absolute text-web-dark  main-nav top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/80 z-30 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
-        {links}
+      <ul className={`absolute text-web-dark  main-nav2 top-20 left-0 w-1/2 sm:w-1/4 h-[60vh] backdrop-blur-lg space-y-5 font-semibold text-lg bg-primary/80 z-30 duration-500 p-4 ${navToggle ? 'translate-x-0 scale-100':'-translate-x-full scale-0'}`}>
+        {mobileLinks}
       </ul>
       <div className="flex gap-4 items-center">  
       <div className="flex active:scale-95 text-lg font-medium relative flex-col gap-0"><Link className="h-full w-full text-web-dark duration-300   inline-block" to={`/cart/${userUid}`}>

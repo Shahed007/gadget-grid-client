@@ -41,7 +41,7 @@ const SignIn = () => {
           icon: 'success',
           confirmButtonText: 'Cool'
         })
-        location.state ? navigate(location.state) : navigate('/');
+        location?.state ? navigate(location.state) : navigate('/');
         }
       })
       
@@ -63,7 +63,7 @@ const SignIn = () => {
         icon: 'success',
         confirmButtonText: 'Cool'
       })
-      location.state ? navigate(location.state) : navigate('/');
+      location?.state ? navigate(location.state) : navigate('/');
     })
   }
 
@@ -112,7 +112,7 @@ const SignIn = () => {
           {signInErr && signInErr}
     </p>
     <p className="mt-4 block text-center  text-base  leading-relaxed text-web-dark antialiased">
-      No account? <Link
+      No account? <Link state={location.state}
         className="font-medium text-white transition-colors hover:text-blue-700"
         to="/signUp"
       >

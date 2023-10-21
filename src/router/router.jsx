@@ -9,6 +9,7 @@ import Product from "../pages/product/Product"
 import UpdateProduct from "../pages/updateProduct/UpdateProduct"
 import Cart from "../pages/cart/Cart"
 import AllProduct from "../pages/allProduct/AllProduct"
+import PrivateRoute from "../pages/privateRoute/PrivateRoute"
 
 
 const router = createBrowserRouter([
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/addProducts',
-        element: <AddProducts></AddProducts>,
+        element: <PrivateRoute>
+          <AddProducts></AddProducts>
+        </PrivateRoute>,
         loader: async()=> {
           return fetch('https://gadget-grid-server.vercel.app/products')
         }
@@ -47,21 +50,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/productDetails/:id',
-        element: <ProductDetails></ProductDetails>,
+        element: <PrivateRoute>
+          <ProductDetails></ProductDetails>
+        </PrivateRoute>,
         loader: async({params})=>{
           return fetch(`https://gadget-grid-server.vercel.app/product/${params.id}`)
         }
       },
       {
         path: '/updateProduct/:id',
-        element: <UpdateProduct></UpdateProduct>,
+        element: <PrivateRoute>
+          <UpdateProduct></UpdateProduct>
+        </PrivateRoute>,
         loader: async({params})=>{
           return fetch(`https://gadget-grid-server.vercel.app/product/${params.id}`)
         }
       },
       {
         path: '/cart/:uId',
-        element: <Cart></Cart>,
+        element: <PrivateRoute>
+          <Cart></Cart>
+        </PrivateRoute>,
         loader: async({params})=>{
           return fetch(`https://gadget-grid-server.vercel.app/cart/${params.uId}`);
         }
