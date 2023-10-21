@@ -3,6 +3,8 @@ import HeroBannerSlider from "./heroBannerSlider/HeroBannerSlider"
 import BrandSection from "../brandSection/BrandSection"
 import { useLoaderData } from "react-router-dom"
 import AboutUsSection from "./aboutUsSection/AboutUsSection"
+import Customer from "../customer/Customer";
+import banner from "../../assets/banner-image/sigin-login-banner.jpg";
 
 
 const Home = () => {
@@ -20,6 +22,9 @@ const Home = () => {
       </section>
       <section className="mb-32">
         <AboutUsSection></AboutUsSection>
+      </section>
+      <section  style={{backgroundImage: `url(${banner})`, backgroundSize:'cover', backgroundPosition: 'center center'}}>
+        <Customer></Customer>
       </section>
     </>
   )

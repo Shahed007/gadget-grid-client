@@ -2,7 +2,7 @@ import aboutBanner from "../../../assets/banner-image/mack-book.jpg";
 import Button from "../../../components/button/Button";
 const AboutUsSection = () => {
   return (
-    <section className="mt-32">
+    <div >
       <h2 className="mb-8 text-web-dark font-semibold text-3xl text-center">About Us</h2>
     <div className="max-w-7xl mx-auto px-3  flex flex-col md:flex-row gap-6 items-center ">
       <div className="flex-1">
@@ -18,7 +18,7 @@ const AboutUsSection = () => {
         </div>
       </div>
     </div>
-    </section>
+    </div>
   )
 }
 
