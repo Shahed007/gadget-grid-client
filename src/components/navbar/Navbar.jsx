@@ -3,6 +3,7 @@ import logo from "../../assets/logo/headphones.png";
 import Button from "../button/Button";
 import { useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
+import Swal from "sweetalert2";
 
 
 
@@ -16,7 +17,13 @@ const Navbar = () => {
 
 
   const handleSignOut = () => {
-    signOutUser()
+    signOutUser();
+    Swal.fire({
+      title: 'Success',
+      text: 'SignOut successful',
+      icon: 'success',
+      confirmButtonText: 'Cool'
+    })
   }
   const desktoplinks = (
     <>

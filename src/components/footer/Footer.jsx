@@ -10,7 +10,7 @@ import {AiFillTwitterCircle} from "react-icons/ai";
 const Footer = () => {
   return (
     <div className='max-w-7xl mx-auto px-3 '>
-      <Link className='text-3xl font-bold text-white/70 tracking-wider' to="/">TechWonders</Link>
+      <Link className='text-3xl font-bold text-white/70 tracking-wider' to="/">GadgetGrid</Link>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 mt-12 '>
         <div className='col-span-4 md:col-span-2 w-full '>
           <p className='text-white/70 flex gap-3'>
