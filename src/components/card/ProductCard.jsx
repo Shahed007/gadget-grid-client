@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Button from '../button/Button';
 
 const ProductCard = ({prod}) => {
-  const {_id, image, products} = prod;
+  const {_id, image, brandName, products} = prod;
   
   return (
     <div className="relative flex flex-col text-gray-700 bg-white shadow-md  rounded-xl bg-clip-border">
@@ -13,6 +13,9 @@ const ProductCard = ({prod}) => {
       className="object-cover w-4/5 h-4/5 md:w-full md:h-full"
     />
     </div>
+    <h4 className='text-white font-semibold text-2xl absolute left-3 top-3 first-letter:uppercase'>
+      {brandName}
+    </h4>
   </div>
   <div className="p-6">
     <div className="flex items-center justify-between mb-2">
