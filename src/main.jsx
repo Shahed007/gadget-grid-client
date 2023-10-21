@@ -5,6 +5,9 @@ import { RouterProvider } from 'react-router-dom'
 import router from './router/router'
 import AuthProvider from './context/AuthProvider'
 import { HelmetProvider } from 'react-helmet-async'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

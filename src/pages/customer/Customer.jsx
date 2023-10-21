@@ -7,7 +7,7 @@ const Customer = () => {
       <h2 className="text-white font-semibold text-3xl text-center mb-8">Customer review</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-      <div className="relative flex w-full  flex-col rounded-xl backdrop-blur-md bg-primary/30 p-2  bg-clip-border text-white shadow-none">
+      <div data-aos="fade-up" className="relative flex w-full  flex-col rounded-xl backdrop-blur-md bg-primary/30 p-2  bg-clip-border text-white shadow-none">
   <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-white bg-transparent shadow-none rounded-xl bg-clip-border">
     <img
       src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
@@ -95,7 +95,7 @@ const Customer = () => {
     </p>
   </div>
       </div>
-      <div className="relative flex w-full  flex-col rounded-xl backdrop-blur-md bg-primary/30 p-2  bg-clip-border text-white shadow-none">
+      <div data-aos="fade-up" className="relative flex w-full  flex-col rounded-xl backdrop-blur-md bg-primary/30 p-2  bg-clip-border text-white shadow-none">
   <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-white bg-transparent shadow-none rounded-xl bg-clip-border">
     <img
       src={user1}
@@ -183,7 +183,7 @@ const Customer = () => {
     </p>
   </div>
       </div>
-      <div className="relative flex w-full  flex-col rounded-xl backdrop-blur-md bg-primary/30 p-2  bg-clip-border text-white shadow-none">
+      <div data-aos="fade-up" className="relative flex w-full  flex-col rounded-xl backdrop-blur-md bg-primary/30 p-2  bg-clip-border text-white shadow-none">
   <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-white bg-transparent shadow-none rounded-xl bg-clip-border">
     <img
       src={user2}
