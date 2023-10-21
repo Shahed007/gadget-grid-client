@@ -217,7 +217,7 @@ const SignUp = () => {
         <button type="submit"  className={`px-10 py-3 w-full bg-transparent buttonAnimation text-shadow drop-shadow-md font-semibold text-lg rounded-md border-t-2 border-t-secondary border-l-2 border-l-secondary border-r-2 border-r-primary border-b-2 border-b-primary duration-200 hover:border-t-primary hover:border-b-secondary hover:border-l-primary hover:border-r-secondary `}>SignIn</button>
       </div>
     <p className="mt-4 block text-center  text-base  leading-relaxed text-web-dark antialiased">
-      Already han an account? <Link
+      Already have an account? <Link
         className="font-medium text-white transition-colors hover:text-blue-700"
         to="/signIn"
       >

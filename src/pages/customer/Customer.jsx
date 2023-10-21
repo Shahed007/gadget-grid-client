@@ -91,7 +91,7 @@ const Customer = () => {
   </div>
   <div className="p-0 mb-6">
     <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-    I've been a loyal customer of TechWonders for over a year. The product selection is fantastic, and I always find what I'm looking for. The only reason it's not a 5-star is because the checkout process can be a bit smoother.
+    I've been a loyal customer of GadgetGrid for over a year. The product selection is fantastic, and I always find what I'm looking for. The only reason it's not a 5-star is because the checkout process can be a bit smoother.
     </p>
   </div>
       </div>
@@ -179,7 +179,7 @@ const Customer = () => {
   </div>
   <div className="p-0 mb-6">
     <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-    I purchased a smartphone from TechWonders, and I couldn't be happier. The product arrived on time, and it's exactly as described. The customer service was excellent, and I appreciate the helpful buying guides on the website.
+    I purchased a smartphone from GadgetGrid, and I couldn't be happier. The product arrived on time, and it's exactly as described. The customer service was excellent, and I appreciate the helpful buying guides on the website.
     </p>
   </div>
       </div>
@@ -268,7 +268,7 @@ const Customer = () => {
   </div>
   <div className="p-0 mb-6">
     <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-    TechWonders is my go-to place for tech shopping. The site is user-friendly, and the reviews are helpful for decision-making. I recently bought wireless earbuds, and they've exceeded my expectations. I highly recommend TechWonders.
+    GadgetGrid is my go-to place for tech shopping. The site is user-friendly, and the reviews are helpful for decision-making. I recently bought wireless earbuds, and they've exceeded my expectations. I highly recommend TechWonders.
     </p>
   </div>
       </div>
