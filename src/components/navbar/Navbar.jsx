@@ -26,9 +26,6 @@ const Navbar = () => {
       <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/allProduct">All Products</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </li>
-      <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/aboutUs">About Us</NavLink>
-      <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
-      </li>
       <li className="flex group link-border flex-col gap-0"><NavLink className="h-full w-full  duration-300 hover:text-primary  inline-block" to="/addProducts">Add Product</NavLink>
       <span className="w-full  h-[2px] rounded-sm scale-0 duration-300 group-hover:scale-100 bg-primary inline-block"></span>
       </li>
