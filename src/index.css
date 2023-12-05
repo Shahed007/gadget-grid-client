@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.text-shadow{
+.text-shadow {
   text-shadow: 1px 1px 10px rgba(11, 11, 12, 0.6);
 }
-.text-shadow2{
+.text-shadow2 {
   text-shadow: 1px 1px 10px rgba(66, 214, 160, 0.6);
 }
 
@@ -14,38 +14,83 @@
   animation: buttonAni 5s infinite ease-in-out;
 }
 
-.main-nav .active {
-  color: #7F80FE;
-}
-.main-nav2 .active {
-  color: white;
-}
-
-
-
-
 
 
 @keyframes buttonAni {
   0% {
-    border-left-color: #D29AFB;
-    
+    border-left-color: #d29afb;
   }
 
-  30%{
-    border-top-color: #7F80FE;
+  30% {
+    border-top-color: #7f80fe;
   }
 
-  60%{
-    border-right-color: #D29AFB;
+  60% {
+    border-right-color: #d29afb;
   }
   70% {
-    border-bottom-color: #7F80FE;
+    border-bottom-color: #7f80fe;
   }
   80% {
-    border-left-color: #7F80FE;
+    border-left-color: #7f80fe;
   }
   80% {
-    border-right-color: #D29AFB;
+    border-right-color: #d29afb;
   }
- }
+}
+
+.main-nav-link {
+  background-image: linear-gradient(to right, #7f80fe, #d29afb 50%, #000 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-nav-active {
+  background-image: linear-gradient(to right, #7f80fe, #d29afb 50%, #000 50%);
+  background-size: 200% 100%;
+  background-position: 0;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-nav-link:hover {
+  background-position: 0;
+}
+
+.main-nav-link:before {
+  content: "";
+  background: #7f80fe;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-nav-active:before {
+  content: "";
+  background: #7f80fe;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-nav-link:hover::before {
+  width: 100%;
+}

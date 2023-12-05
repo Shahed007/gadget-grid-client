@@ -21,6 +21,7 @@ const SignIn = () => {
     
     signIn(email, password)
     .then((result) => {
+      console.log(result.user);
       const user = {
         email,
         lastSignInTime: result?.user?.metadata?.lastSignInTime
@@ -42,7 +43,7 @@ const SignIn = () => {
           icon: 'success',
           confirmButtonText: 'Cool'
         })
-        location?.state ? navigate(location.state) : navigate('/');
+        navigate('/');
         }
       })
       
@@ -64,7 +65,7 @@ const SignIn = () => {
         icon: 'success',
         confirmButtonText: 'Cool'
       })
-      location?.state ? navigate(location.state) : navigate('/');
+      navigate('/');
     })
   }
 

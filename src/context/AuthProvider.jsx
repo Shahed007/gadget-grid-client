@@ -14,6 +14,8 @@ const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
   const [userUid, setUserUid] = useState(null);
   const [count, setCount] = useState(0);
+
+
   
 
   const createUser = (email,password) => {
@@ -42,8 +44,10 @@ const AuthProvider = ({children}) => {
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, (user)=>{
         setUser(user);
-        setLoading(false);
+        // setUserUid(user.uid);
+        // console.log(user.getIdTokenResult());
         setUserUid(user.uid);
+        setLoading(false);
     })
 
     return () => {

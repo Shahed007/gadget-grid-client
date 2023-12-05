@@ -20,4 +20,15 @@ const deleteLocalStorage = (number) => {
   localStorage.setItem('cart', JSON.stringify(num));
 }
 
-export {getLocalStorage, saveLocalStorage, deleteLocalStorage};
+const getDarkMode = () => {
+  const dark = localStorage.getItem('mode');
+  if(dark){
+    return JSON.parse(dark);
+  }
+}
+
+const saveDarkMode = (mode) =>{
+  localStorage.setItem('mode', JSON.parse(mode));
+}
+
+export {getLocalStorage, saveLocalStorage, deleteLocalStorage, getDarkMode, saveDarkMode};

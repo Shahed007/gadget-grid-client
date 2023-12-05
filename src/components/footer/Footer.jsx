@@ -61,17 +61,17 @@ const Footer = () => {
             <li><Link className='duration-200 hover:text-white'>Shipping Information</Link></li>
             <li><Link className='duration-200 hover:text-white'>Privacy Policy</Link></li>
             <li><Link className='duration-200 hover:text-white'>Terms & Conditions</Link></li>
-            <li> <Link className='duration-200 hover:text-white'>support@techwonders.com</Link></li>
+            <li> <Link className='duration-200 hover:text-white'>support@gadgetgrid.com</Link></li>
           </ul>
         </div>
         <div>
           <h4 className='text-white/70 text-lg font-semibold'>Connect with Us</h4>
           <ul className='mt-5 text-white/70 text-lg'>
-            <li><span className='font-semibold'>Email:</span> <Link className='duration-200 hover:text-white'>info@techwonders.com</Link></li>
+            <li><span className='font-semibold'>Email:</span> <Link className='duration-200 hover:text-white'>info@gadgetgrid.com</Link></li>
             <li><span className='font-semibold'>Phone:</span> <Link className='duration-200 hover:text-white'>(123) 456-7890</Link></li>
             <li><span className='font-semibold'>Address:</span> <Link className='duration-200 hover:text-white'>1234 Innovation Avenue, Suite 567, Tech City, TX 12345</Link></li>
             
-            <li><span className='font-semibold'>General Inquiries:</span> <Link className='duration-200 hover:text-white'>inquiries@techwonders.com</Link></li>
+            <li><span className='font-semibold'>General Inquiries:</span> <Link className='duration-200 hover:text-white'>inquiries@gadgetgrid.com</Link></li>
            
           </ul>
         </div>

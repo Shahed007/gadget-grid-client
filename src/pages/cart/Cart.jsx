@@ -11,7 +11,7 @@ const tableHeader = ['ID', 'Image', 'Name', 'Price']
 const Cart = () => {
   const loaderCart = useLoaderData();
   const [loaderData, setLoaderData] = useState(loaderCart);
-  const {setCount, count, userUid} = useAuthContext();
+  const {setCount, count, userUid, loading} = useAuthContext();
 
   
   
@@ -68,7 +68,12 @@ const Cart = () => {
       })
   } 
   return (
-      <section className="mt-[135px] mb-32">
+    <>
+      {
+        loading ? 
+        <div className="h-screen w-full flex justify-center items-center"></div>
+        :
+        <section className="mt-[135px] mb-32">
         <div className="bg-gradient-to-l h-40 flex justify-center items-center backdrop-blur-lg  from-primary/30 to-secondary/30 w-full">
          <h2 className="text-center py-6  text-web-dark font-extrabold text-4xl uppercase">Products In your cart</h2>
         </div>
@@ -146,6 +151,9 @@ const Cart = () => {
       </div>
         }
     </section>
+      }
+    </>
+      
   )
 }
 

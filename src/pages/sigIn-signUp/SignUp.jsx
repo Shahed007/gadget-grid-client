@@ -82,7 +82,19 @@ const SignUp = () => {
 
   const handleGoogleSiUp = () => {
     googleSignIn()
-    .then(() => {
+    .then((result) => {
+      const email = result.user.email;
+      const name  = result.user.displayName;
+      console.log(result.user);
+      fetch('https://gadget-grid-server.vercel.app/users', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({email, name})
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
       Swal.fire({
         title: 'Success',
         text: 'SignUp successful',

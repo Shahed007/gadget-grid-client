@@ -63,11 +63,11 @@ const AddProducts = () => {
         <title>GadgetGrid || AddProducts</title>
       </Helmet>
       <section className="mt-[200px] mb-32">
-      <div className="max-w-6xl mx-auto px-3 backdrop-blur-md bg-primary/30 p-4 rounded">
+      <div className="max-w-6xl mx-auto px-3 backdrop-blur-md dark:text-white dark:bg-zinc-800 bg-primary/30 p-4 rounded">
       <h2 className="text-3xl font-extrabold text-center mb-7">Add Products</h2>
       <form className="" onSubmit={handleAddProducts}> 
-       <div className="flex items-center gap-6 md:flex-row flex-col">
-       <div className="w-full flex-1 flex flex-col gap-4">
+       <div className="flex items-center gap-6 md:flex-row flex-col ">
+       <div className="w-full flex-1 flex flex-col  gap-4">
         <div className="flex flex-col gap-3 w-full">
            <label  className="text-base font-semibold">Name</label>
             <input required name="productsName" className="p-2 w-full rounded" type="text" placeholder="Enter products name" />
