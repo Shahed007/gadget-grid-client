@@ -66,8 +66,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "h-full w-full  duration-300     main-nav-active"
-              : "h-full w-full  duration-300  main-nav-link"
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
           }
           to="/"
         >
@@ -78,8 +78,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "h-full w-full  duration-300     main-nav-active"
-              : "h-full w-full  duration-300  main-nav-link"
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
           }
           to="/allProduct"
         >
@@ -90,8 +90,8 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "h-full w-full  duration-300     main-nav-active"
-              : "h-full w-full  duration-300  main-nav-link"
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
           }
           to="/addProducts"
         >
@@ -142,7 +142,7 @@ const Navbar = () => {
           </Link>
           <div className="flex gap-3 items-center dark:text-white">
             <div
-              className={`h-10 w-20 p-[4px] relative rounded-3xl bg-gray-100 shadow-inner border-s-2 border-gray-300 border flex justify-between items-center dark:bg-zinc-900`}
+              className={`h-10 w-20 p-[4px] relative rounded-3xl bg-gray-100 shadow-inner border-s-2 border-gray-300 dark:border-gray-600 border flex justify-between items-center dark:bg-zinc-900`}
             >
               <span
                 onClick={handleChangeMod}
@@ -207,7 +207,7 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={`h-20 dark:bg-web-dark  backdrop-blur-lg bg-white shadow-md border-t-gray-300 border-t ${
+        className={`h-20 dark:bg-web-dark dark:text-white  backdrop-blur-lg bg-white shadow-md border-t-gray-300 border-t ${
           navbarFix
             ? "fixed top-0 left-0 w-full bg-white/10 backdrop-blur-md"
             : ""
@@ -325,7 +325,11 @@ const Navbar = () => {
                 </div>
               ) : (
                 <div>
-                  <Button text="SignIn" link="/signIn"></Button>
+                  <Button
+                    className={`${navbarFix ? "text-primary" : ""}`}
+                    text="SignIn"
+                    link="/signIn"
+                  ></Button>
                 </div>
               )}
             </div>
