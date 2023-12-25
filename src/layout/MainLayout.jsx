@@ -5,7 +5,7 @@ import Footer from "../components/footer/Footer";
 const MainLayout = () => {
   return (
     <div className="relative overflow-x-hidden bg-bgColor dark:bg-web-dark">
-      <header className="  w-full">
+      <header className="  w-full bg-white ">
         <Navbar></Navbar>
       </header>
       <main>

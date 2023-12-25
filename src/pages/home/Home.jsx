@@ -6,6 +6,7 @@ import AboutUsSection from "./aboutUsSection/AboutUsSection";
 import Customer from "../customer/Customer";
 import banner from "../../assets/banner-image/sigin-login-banner.jpg";
 import { animateScroll } from "react-scroll";
+import TopProduct from "./topProduct/TopProduct";
 
 const Home = () => {
   const loaderBrand = useLoaderData();
@@ -27,6 +28,9 @@ const Home = () => {
       </section>
       <section className="mb-32">
         <AboutUsSection></AboutUsSection>
+      </section>
+      <section className="my-32">
+        <TopProduct></TopProduct>
       </section>
       <section
         style={{

@@ -99,6 +99,18 @@ const Navbar = () => {
           Add Product
         </NavLink>
       </li>
+      <li className="flex group link-border flex-col gap-0">
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
+          }
+          to="/addProducts"
+        >
+          Shop
+        </NavLink>
+      </li>
     </>
   );
   const mobileLinks = (
@@ -127,19 +139,30 @@ const Navbar = () => {
           Add Product
         </NavLink>
       </li>
+      <li className="flex group link-border flex-col gap-0">
+        <NavLink
+          className="h-full w-full  duration-300  inline-block"
+          to="/addProducts"
+        >
+          Shop
+        </NavLink>
+      </li>
     </>
   );
-
   return (
     <nav
-      className={`z-50 h-[70px] bg-white dark:bg-dark-mode  w-full ${
-        navbarFix
-          ? "fixed top-0 left-0  bg-white/10 backdrop-blur-md "
-          : "relative"
+      className={`z-50 relative w-full h-16  dark:bg-web-dark dark:text-white  backdrop-blur-lg bg-white   ${
+        navbarFix ? "fixed top-0 left-0 w-full" : ""
       }`}
     >
       <Container>
-        <div className="flex h-full  justify-between items-center">
+        <div className="flex h-full max-w-7xl mx-auto px-3 justify-between items-center">
+          <Link
+            to="/"
+            className="text-3xl  bg-primary  bg-clip-text text-transparent"
+          >
+            GadGetGrid
+          </Link>
           <ul className="hidden dark:text-white  md:flex text-web-dark main-nav items-center gap-5 text-base font-medium">
             {desktoplinks}
           </ul>
@@ -235,6 +258,75 @@ const Navbar = () => {
                   </svg>
                 )}
               </button>
+            </div>
+
+            <div className="flex active:scale-95 text-lg font-medium relative flex-col gap-0">
+              <Link
+                className="h-full w-full text-web-dark duration-300   inline-block"
+                to={`/cart/${userUid}`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-7 h-7 dark:text-white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div>
+              {user ? (
+                <div>
+                  <div>
+                    <img
+                      onClick={() => setUserToggle(!userToggle)}
+                      className="h-12 w-12 cursor-pointer hover:scale-95 active:scale-90 object-cover rounded-full shadow-md shadow-primary/40 buttonAnimation border-t-2  border-t-secondary border-l-2 border-l-secondary border-r-2 border-r-primary border-b-2 border-b-primary duration-200 hover:border-t-primary hover:border-b-secondary hover:border-l-primary hover:border-r-secondary"
+                      src={user?.photoURL}
+                      alt={`avatar`}
+                    />
+                  </div>
+                  <div>
+                    <ul
+                      className={`absolute top-20 space-y-3 dark:bg-zinc-800 w-1/2 sm:w-1/4 backdrop-blur-md bg-primary/50 p-2 right-0 duration-500 ${
+                        userToggle
+                          ? "translate-x-0 scale-100"
+                          : "translate-x-full scale-0"
+                      }`}
+                    >
+                      <li>
+                        <h3 className="text-lg font-semibold text-web-dark text-center">
+                          {user?.displayName}
+                        </h3>
+                      </li>
+                      <li className="text-white text-base">
+                        <Link className="duration-200 hover:text-blue-200">
+                          Update your profile
+                        </Link>
+                      </li>
+                      <li>
+                        <Button
+                          func={handleSignOut}
+                          text="SignOut"
+                          className="text-white w-full"
+                        ></Button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <Button className={`${navbarFix ? "text-primary" : ""} `}>
+                    Sign In
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
