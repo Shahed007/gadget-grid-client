@@ -93,3 +93,12 @@
 .main-nav-link:hover::before {
   width: 100%;
 }
+
+@media screen and (min-width: 768px) {
+  .hero-bg {
+    background-image: url("./assets/banner-image/animated-background.gif");
+    background-size: 50%;
+    background-position: left center;
+    background-repeat: no-repeat;
+  }
+}

@@ -19,7 +19,7 @@ const Home = () => {
       <Helmet>
         <title>GadgetGrid | Home</title>
       </Helmet>
-      <section className="mt-[135px] backdrop-blur-sm dark:bg-web-dark bg-white relative after:absolute after:h-full dark:after:bg-gray-950 after:top-0 after:right-0 after:w-1/2 after:bg-primary/20">
+      <section className=" bg-black">
         <HeroBannerSlider></HeroBannerSlider>
       </section>
       <section className="my-32 dark:bg-web-dark">
