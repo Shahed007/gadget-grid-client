@@ -29,7 +29,7 @@ const NewArivals = () => {
   return (
     <div>
       <Container>
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 dark:text-white">
           <h1 className="capitalize text-3xl font-semibold text-center">
             NEW ARRIVALS
           </h1>

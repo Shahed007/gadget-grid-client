@@ -8,6 +8,7 @@ import banner3 from "../../../assets/banner-image/banner-3.webp";
 import { Autoplay } from "swiper/modules";
 import Button from "../../../components/button/Button";
 import Container from "../../../components/container/Container";
+import { Link } from "react-router-dom";
 
 const advertisement = [
   {
@@ -50,7 +51,9 @@ const HeroBannerSlider = () => {
                   {name}
                 </h2>
                 <div className="mt-7">
-                  <Button className="text-white">By Now</Button>
+                  <Link to="/allProduct">
+                    <Button className="text-white">By Now</Button>
+                  </Link>
                 </div>
               </div>
               <div className="w-full md:flex-1 justify-center md:justify-start flex items-center  h-full">

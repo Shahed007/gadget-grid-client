@@ -106,7 +106,7 @@ const Navbar = () => {
               ? "h-full w-full  duration-300  main-nav-active"
               : "h-full w-full  duration-300  main-nav-link "
           }
-          to="/about"
+          to="/about-us"
         >
           About Us
         </NavLink>
@@ -154,7 +154,7 @@ const Navbar = () => {
       <li className="flex group link-border flex-col gap-0">
         <NavLink
           className="h-full w-full  duration-300  inline-block"
-          to="/about"
+          to="/about-us"
         >
           About Us
         </NavLink>
