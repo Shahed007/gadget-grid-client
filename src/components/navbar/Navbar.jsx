@@ -312,19 +312,22 @@ const Navbar = () => {
                       </li>
                       <li>
                         <Button
-                          func={handleSignOut}
-                          text="SignOut"
+                          onClick={handleSignOut}
                           className="text-white w-full"
-                        ></Button>
+                        >
+                          Sign Out
+                        </Button>
                       </li>
                     </ul>
                   </div>
                 </div>
               ) : (
                 <div>
-                  <Button className={`${navbarFix ? "text-primary" : ""} `}>
-                    Sign In
-                  </Button>
+                  <Link to="/signIn">
+                    <Button className={`${navbarFix ? "text-primary" : ""} `}>
+                      Sign In
+                    </Button>
+                  </Link>
                 </div>
               )}
             </div>

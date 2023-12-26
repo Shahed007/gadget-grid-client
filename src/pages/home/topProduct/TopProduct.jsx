@@ -11,7 +11,7 @@ const TopProduct = () => {
         </h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-0 gap-8 items-center">
-        <div>
+        <div data-aos="fade-right">
           <ul className="space-y-6 dark:text-white">
             <li className="flex justify-between">
               <div className="flex-1">
@@ -39,12 +39,16 @@ const TopProduct = () => {
               <div className="flex-1">
                 <h2 className="text-2xl font-semibold ">Camera</h2>
                 <p className="text-sm ">
-                  <span className="text-black font-bold dark:text-white">Rear Camera:</span>
+                  <span className="text-black font-bold dark:text-white">
+                    Rear Camera:
+                  </span>
                   48MP main sensor, 12MP ultrawide sensor, and 12MP telephoto
                   sensor with 3x optical zoom.
                 </p>
                 <h3>
-                  <span className="text-black font-bold dark:text-white">Front Camera::</span>
+                  <span className="text-black font-bold dark:text-white">
+                    Front Camera::
+                  </span>
                   12MP TrueDepth camera with autofocus
                 </h3>
               </div>
@@ -96,12 +100,15 @@ const TopProduct = () => {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col justify-center items-center dark:text-white">
+        <div
+          className="flex flex-col justify-center items-center dark:text-white"
+          data-aos="zoom-in"
+        >
           <img className="h-full w-full" src={phone} alt="" />
           <h4 className="text-2xl font-bold">iPhone 15 pro max</h4>
         </div>
         <div>
-          <ul className="space-y-8 dark:text-white">
+          <ul className="space-y-8 dark:text-white" data-aos="fade-down">
             <li className="flex justify-between">
               <div className="flex-1">
                 <h2 className="text-2xl font-semibold ">Storage</h2>

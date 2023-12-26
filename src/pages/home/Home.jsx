@@ -7,6 +7,7 @@ import Customer from "../customer/Customer";
 import banner from "../../assets/banner-image/sigin-login-banner.jpg";
 import { animateScroll } from "react-scroll";
 import TopProduct from "./topProduct/TopProduct";
+import NewArivals from "./newArivals/NewArivals";
 
 const Home = () => {
   const loaderBrand = useLoaderData();
@@ -31,6 +32,9 @@ const Home = () => {
       </section>
       <section className="my-32">
         <TopProduct></TopProduct>
+      </section>
+      <section className="my-32">
+        <NewArivals></NewArivals>
       </section>
       <section
         style={{
