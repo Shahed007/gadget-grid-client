@@ -45,7 +45,7 @@ const Home = () => {
       >
         <Customer></Customer>
       </section>
-      <div className="fixed bottom-5 right-5" onClick={scrollTop}>
+      <div className="fixed bottom-5 right-5 z-[150]" onClick={scrollTop}>
         <button className="h-9 w-9 text-white shadow-md flex justify-center items-center active:scale-95 rounded-full bg-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"

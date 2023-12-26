@@ -80,17 +80,13 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/cart/:uId",
+        path: "/cart",
         element: (
           <PrivateRoute>
             <Cart></Cart>
           </PrivateRoute>
         ),
-        loader: async ({ params }) => {
-          return fetch(
-            `https://gadget-grid-server.vercel.app/cart/${params.uId}`
-          );
-        },
+       
       },
       {
         path: "/allProduct",

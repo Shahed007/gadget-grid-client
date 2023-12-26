@@ -6,7 +6,7 @@ const TopProduct = () => {
   return (
     <Container>
       <div className="flex flex-col justify-center items-center">
-        <h2 className="text-4xl font-semibold mb-5 dark:text-white">
+        <h2 className="text-4xl font-semibold mb-5 dark:text-white uppercase">
           Top Product
         </h2>
       </div>

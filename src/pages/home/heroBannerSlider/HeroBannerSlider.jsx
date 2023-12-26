@@ -5,15 +5,9 @@ import "swiper/css/pagination";
 import banner1 from "../../../assets/banner-image/banner-1.png";
 import banner2 from "../../../assets/banner-image/banner-2.webp";
 import banner3 from "../../../assets/banner-image/banner-3.webp";
-import banner4 from "../../../assets/banner-image/banner-4.png";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import Button from "../../../components/button/Button";
-import Mobile from "./productDetails/Mobile";
-import { Processor } from "postcss";
-import Tws from "./productDetails/Tws";
-import Camera from "./productDetails/Camera";
 import Container from "../../../components/container/Container";
-import animatedBackground from "../../../assets/banner-image/animated-background.gif";
 
 const advertisement = [
   {
@@ -52,7 +46,7 @@ const HeroBannerSlider = () => {
                 <h1 className="text-white text-lg  md:text-2xl italic mb-3">
                   Exclusive
                 </h1>
-                <h2 className="text-white text-2xl sm:text-4xl font-medium relative z-40">
+                <h2 className="text-white text-2xl md:text-3xl lg:text-4xl  font-medium relative z-40">
                   {name}
                 </h2>
                 <div className="mt-7">
