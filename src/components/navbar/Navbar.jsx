@@ -129,7 +129,11 @@ const Navbar = () => {
     <>
       <li className="flex group link-border flex-col gap-0">
         <NavLink
-          className="h-full w-full  duration-300  inline-block relative bg-gradient-to-l to-primary from-transparent text-transparent bg-clip-text"
+          className={({ isActive }) =>
+            isActive
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
+          }
           to="/"
         >
           Home
@@ -137,7 +141,11 @@ const Navbar = () => {
       </li>
       <li className="flex group link-border flex-col gap-0">
         <NavLink
-          className="h-full w-full  duration-300  inline-block"
+          className={({ isActive }) =>
+            isActive
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
+          }
           to="/allProduct"
         >
           All Products
@@ -145,7 +153,11 @@ const Navbar = () => {
       </li>
       <li className="flex group link-border flex-col gap-0">
         <NavLink
-          className="h-full w-full  duration-300  inline-block"
+          className={({ isActive }) =>
+            isActive
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
+          }
           to="/addProducts"
         >
           Add Product
@@ -153,7 +165,11 @@ const Navbar = () => {
       </li>
       <li className="flex group link-border flex-col gap-0">
         <NavLink
-          className="h-full w-full  duration-300  inline-block"
+          className={({ isActive }) =>
+            isActive
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
+          }
           to="/about-us"
         >
           About Us
@@ -161,7 +177,11 @@ const Navbar = () => {
       </li>
       <li className="flex group link-border flex-col gap-0">
         <NavLink
-          className="h-full w-full  duration-300  inline-block"
+          className={({ isActive }) =>
+            isActive
+              ? "h-full w-full  duration-300  main-nav-active"
+              : "h-full w-full  duration-300  main-nav-link "
+          }
           to="/contact-us"
         >
           Contact Us
@@ -499,17 +519,25 @@ const Navbar = () => {
         <ul className="space-y-3 dark:text-white">
           {mobileLinks}
           <li className=" relative">
-            <Link to="/" className="flex  gap-1 items-center">
-              <img
-                className="h-12 w-12 cursor-pointer hover:scale-95 active:scale-90 object-cover rounded-full shadow-md shadow-primary/40 buttonAnimation border-t-2  border-t-secondary border-l-2 border-l-secondary border-r-2 border-r-primary border-b-2 border-b-primary duration-200 hover:border-t-primary hover:border-b-secondary hover:border-l-primary hover:border-r-secondary"
-                src={user?.photoURL}
-                alt={`avatar`}
-              />
-              <h2 className="text-lg font-medium">{user?.displayName}</h2>
-            </Link>
+            {user ? (
+              <Link to="/" className="flex  gap-1 items-center">
+                <img
+                  className="h-12 w-12 cursor-pointer hover:scale-95 active:scale-90 object-cover rounded-full shadow-md shadow-primary/40 buttonAnimation border-t-2  border-t-secondary border-l-2 border-l-secondary border-r-2 border-r-primary border-b-2 border-b-primary duration-200 hover:border-t-primary hover:border-b-secondary hover:border-l-primary hover:border-r-secondary"
+                  src={user?.photoURL}
+                  alt={`avatar`}
+                />
+                <h2 className="text-lg font-medium">{user?.displayName}</h2>
+              </Link>
+            ) : (
+              ""
+            )}
           </li>
           <li>
-            <Button onClick={handleSignOut}>Sign Out</Button>
+            {user ? (
+              <Button onClick={handleSignOut}>Sign Out</Button>
+            ) : (
+              <Link to="/signIn">Sign In</Link>
+            )}
           </li>
         </ul>
       </div>

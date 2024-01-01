@@ -7,7 +7,7 @@ const AboutUs = () => {
         <h1 className="text-3xl font-bold text-center">About US</h1>
       </section>
       <Container>
-        <section className="my-12">
+        <section className="my-12 dark:text-white text-black">
           <div>
             <p>
               Welcome to Gadget Grid, your ultimate destination for cutting-edge
@@ -18,7 +18,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div>
-            <h3 className="my-4 font-semibold text-lg text-black">
+            <h3 className="my-4 font-semibold text-lg text-black dark:text-white">
               Our Mission
             </h3>
             <p>
@@ -32,7 +32,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div>
-            <h3 className="my-4 font-semibold text-lg text-black">
+            <h3 className="my-4 font-semibold text-lg text-black dark:text-white">
               What Sets Us Apart
             </h3>
             <p>
@@ -46,7 +46,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div>
-            <h3 className="my-4 font-semibold text-lg text-black">
+            <h3 className="my-4 font-semibold text-lg text-black dark:text-white">
               Quality Assurance
             </h3>
             <p>
@@ -58,7 +58,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div>
-            <h3 className="my-4 font-semibold text-lg text-black">
+            <h3 className="my-4 font-semibold text-lg text-black dark:text-white">
               Customer-Centric Approach
             </h3>
             <p>
@@ -70,7 +70,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div>
-            <h3 className="my-4 font-semibold text-lg text-black">
+            <h3 className="my-4 font-semibold text-lg text-black dark:text-white">
               Stay Connected with Gadget Grid
             </h3>
             <p>
