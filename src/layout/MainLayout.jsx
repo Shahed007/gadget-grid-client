@@ -1,14 +1,13 @@
-import { Outlet } from "react-router-dom"
-import Navbar from "../components/navbar/Navbar"
-import Footer from "../components/footer/Footer"
-
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/navbar/Navbar";
+import Footer from "../components/footer/Footer";
 
 const MainLayout = () => {
   return (
     <div className="relative overflow-x-hidden bg-bgColor dark:bg-web-dark">
-    <header className=" absolute top-0 w-full">
-      <Navbar></Navbar>
-    </header>
+      <header className="  w-full bg-white ">
+        <Navbar></Navbar>
+      </header>
       <main>
         <Outlet></Outlet>
       </main>
@@ -16,7 +15,7 @@ const MainLayout = () => {
         <Footer></Footer>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

@@ -11,6 +11,7 @@ import Cart from "../pages/cart/Cart";
 import AllProduct from "../pages/allProduct/AllProduct";
 import PrivateRoute from "../pages/privateRoute/PrivateRoute";
 import ErrorPage from "../pages/errorPage/ErrorPage";
+import AboutUs from "../pages/about/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -80,17 +81,12 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/cart/:uId",
+        path: "/cart",
         element: (
           <PrivateRoute>
             <Cart></Cart>
           </PrivateRoute>
         ),
-        loader: async ({ params }) => {
-          return fetch(
-            `https://gadget-grid-server.vercel.app/cart/${params.uId}`
-          );
-        },
       },
       {
         path: "/allProduct",
@@ -98,6 +94,10 @@ const router = createBrowserRouter([
         loader: async () => {
           return fetch("https://gadget-grid-server.vercel.app/products");
         },
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs></AboutUs>,
       },
     ],
   },
