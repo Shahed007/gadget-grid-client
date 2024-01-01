@@ -14,6 +14,30 @@ I built the frontend of this website using React.js, Tailwind CSS, and Material 
 
 This website was created for my personal learning journey, specifically to gain hands-on experience in building an e-commerce type website. The primary goal is to understand the process of developing and deploying a website that facilitates gadget sellers in showcasing and selling their products. Through this project, I aim to enhance my skills in web development and create a valuable platform for gadget sellers.
 
+## Installation clinet
+
+
+```bash
+ open cmd
+ git clone https://github.com/Shahed007/text-editor.git
+ cd gadget-grid-client
+ npm install 
+ npm run dev
+ than change example.env file to .env and set yor own firebase configaration
+```
+
+## Installation Server
+
+
+```bash
+ open cmd
+ git clone https://github.com/Shahed007/gadget-grid-server.git
+ cd gadget-grid-server
+ npm install 
+ npm run dev
+ than create .env file and set your DB_USER= Mongodb database user or DB_PASS= Mongodb database password
+```
+
 
 
 ## 5 Features of my project

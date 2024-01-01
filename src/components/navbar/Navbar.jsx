@@ -536,7 +536,16 @@ const Navbar = () => {
             {user ? (
               <Button onClick={handleSignOut}>Sign Out</Button>
             ) : (
-              <Link to="/signIn">Sign In</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "h-full w-full  duration-300  main-nav-active"
+                    : "h-full w-full  duration-300  main-nav-link "
+                }
+                to="/signIn"
+              >
+                Sign In
+              </NavLink>
             )}
           </li>
         </ul>
